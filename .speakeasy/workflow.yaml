@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     acp-OAS:
         inputs:
-            - location: ../../../Downloads/Athena.openapi.yaml
+            - location: ./Athena.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/byteleap-ct0/byteleap/acp-oas
 targets:

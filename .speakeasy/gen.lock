@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.401.2
   generationVersion: 2.421.3
-  releaseVersion: 0.0.1
-  configChecksum: 7e2aaf30ad3c1c39559c0e2ca778772e
+  releaseVersion: 0.0.2
+  configChecksum: 48d44ff3842f281be73f4c58c9050937
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -429,7 +429,7 @@ examples:
     "1":
       responses:
         "200":
-          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Camry", "system_message": "<value>", "temperature": "4062.70", "title": "<value>", "user_id": "<value>"}
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "CX-9", "system_message": "<value>", "temperature": "398.03", "title": "<value>", "user_id": "<value>"}
   list_chat_threads:
     speakeasy-default-list-chat-threads:
       responses:
@@ -468,7 +468,7 @@ examples:
         application/json: {"temperature": null, "name": "Test_chat2", "system_message": "test system message"}
       responses:
         "200":
-          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Escalade", "system_message": "<value>", "temperature": "9845.49", "title": "<value>", "user_id": "<value>"}
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Wrangler", "system_message": "<value>", "temperature": "2992.28", "title": "<value>", "user_id": "<value>"}
   delete_chat_thread:
     "":
       parameters:
@@ -483,7 +483,7 @@ examples:
           chat_id: "8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa"
       responses:
         "200":
-          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Taurus", "system_message": "<value>", "temperature": "1462.51", "title": "<value>", "user_id": "<value>"}
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Silverado", "system_message": "<value>", "temperature": "1418.46", "title": "<value>", "user_id": "<value>"}
   create_chat_thread_with_msg:
     "":
       requestBody:

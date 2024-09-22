@@ -2,23 +2,23 @@ speakeasyVersion: 1.401.2
 sources:
     acp-OAS:
         sourceNamespace: acp-oas
-        sourceRevisionDigest: sha256:ede614cbe1a2f929ba9ad284ad598c4391a7748d333028fb008a3695e04e27d0
-        sourceBlobDigest: sha256:a11560fdffc6e7729d11d7c8869185043d1f1e9c120f10da6f58e8db377d7fe0
+        sourceRevisionDigest: sha256:e1e7e52492a0360695c532b264291549177af7f78351ae78209dd20a1fdff195
+        sourceBlobDigest: sha256:e0fa4acb2f973a783a573fcf1964a582238ce0a23038a1a04fc3daae00b6981f
         tags:
             - latest
 targets:
     acp:
         source: acp-OAS
         sourceNamespace: acp-oas
-        sourceRevisionDigest: sha256:ede614cbe1a2f929ba9ad284ad598c4391a7748d333028fb008a3695e04e27d0
-        sourceBlobDigest: sha256:a11560fdffc6e7729d11d7c8869185043d1f1e9c120f10da6f58e8db377d7fe0
+        sourceRevisionDigest: sha256:e1e7e52492a0360695c532b264291549177af7f78351ae78209dd20a1fdff195
+        sourceBlobDigest: sha256:e0fa4acb2f973a783a573fcf1964a582238ce0a23038a1a04fc3daae00b6981f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         acp-OAS:
             inputs:
-                - location: ../../../Downloads/Athena.openapi.yaml
+                - location: ./Athena.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/byteleap-ct0/byteleap/acp-oas
     targets:

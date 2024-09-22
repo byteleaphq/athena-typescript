@@ -10,3 +10,6 @@ targets:
     acp:
         target: typescript
         source: acp-OAS
+        publish:
+            npm:
+                token: $npm_token

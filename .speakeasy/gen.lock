@@ -1,0 +1,665 @@
+lockVersion: 2.0.0
+id: 773216f8-e852-4014-b1fb-cdae58377629
+management:
+  docChecksum: 9afbdd728be793589acc9ca8a65edc30
+  docVersion: 1.0.0
+  speakeasyVersion: 1.401.2
+  generationVersion: 2.421.3
+  releaseVersion: 0.0.1
+  configChecksum: 7e2aaf30ad3c1c39559c0e2ca778772e
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    additionalProperties: 0.1.1
+    core: 3.17.6
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.1
+    globalSecurity: 2.82.11
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.4
+    nullables: 0.1.0
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.1.0
+    unions: 2.85.7
+    uploadStreams: 0.1.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .eslintrc.cjs
+  - .gitattributes
+  - .npmignore
+  - CONTRIBUTING.md
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/activefeatures.md
+  - docs/models/components/activereadingmodel.md
+  - docs/models/components/brain.md
+  - docs/models/components/chat.md
+  - docs/models/components/chatbotanalytics.md
+  - docs/models/components/chatbotmessages.md
+  - docs/models/components/chatbotmessagesreference.md
+  - docs/models/components/chatbotresponse.md
+  - docs/models/components/chatinteraction.md
+  - docs/models/components/chatmessages.md
+  - docs/models/components/deleteresponse.md
+  - docs/models/components/document.md
+  - docs/models/components/documentreview.md
+  - docs/models/components/documentreviewdetail.md
+  - docs/models/components/dwdata.md
+  - docs/models/components/finalreviewmodel.md
+  - docs/models/components/metadata.md
+  - docs/models/components/metadataschema.md
+  - docs/models/components/reference.md
+  - docs/models/components/reference2.md
+  - docs/models/components/security.md
+  - docs/models/components/two.md
+  - docs/models/errors/uploaddocumentbrainresponsebody.md
+  - docs/models/errors/uploaddocumentresponsebody.md
+  - docs/models/operations/content.md
+  - docs/models/operations/createbrainrequestbody.md
+  - docs/models/operations/createchatthreadrequestbody.md
+  - docs/models/operations/createchatthreadwithmsgrequestbody.md
+  - docs/models/operations/createdocumentreviewrequestbody.md
+  - docs/models/operations/createdocumentwithurlrequest.md
+  - docs/models/operations/createdocumentwithurlrequestbody.md
+  - docs/models/operations/createtextdocumentrequest.md
+  - docs/models/operations/createtextdocumentrequestbody.md
+  - docs/models/operations/deletebrainrequest.md
+  - docs/models/operations/deletechatthreadrequest.md
+  - docs/models/operations/deletedocumentrequest.md
+  - docs/models/operations/downloaddocumentrequest.md
+  - docs/models/operations/downloaddocumentresponsebody.md
+  - docs/models/operations/filet.md
+  - docs/models/operations/finalmodel.md
+  - docs/models/operations/getbrainrequest.md
+  - docs/models/operations/getchatbotanalyticsrequest.md
+  - docs/models/operations/getchatbotgetmessagesrequest.md
+  - docs/models/operations/getchatbotlistrequest.md
+  - docs/models/operations/getchatrequest.md
+  - docs/models/operations/getchatthreadrequest.md
+  - docs/models/operations/getdocumentrequest.md
+  - docs/models/operations/getdocumentsrequest.md
+  - docs/models/operations/getintegrationintegrationnamelistrequest.md
+  - docs/models/operations/getorganisationresponsebody.md
+  - docs/models/operations/listdocumentreviewsrequest.md
+  - docs/models/operations/postchatbotcreaterequestbody.md
+  - docs/models/operations/postchatbotdeleterequest.md
+  - docs/models/operations/postchatbotgetrequest.md
+  - docs/models/operations/postchatbotresetrequest.md
+  - docs/models/operations/postchatbotupdaterequestbody.md
+  - docs/models/operations/postintegrationintegrationnameaddrequest.md
+  - docs/models/operations/postintegrationintegrationnameaddrequestbody.md
+  - docs/models/operations/postintegrationintegrationnameaddresponsebody.md
+  - docs/models/operations/postintegrationintegrationnameconnectrequest.md
+  - docs/models/operations/postintegrationintegrationnameconnectresponsebody.md
+  - docs/models/operations/postintegrationintegrationnamedisconnectrequest.md
+  - docs/models/operations/postintegrationintegrationnamedisconnectresponsebody.md
+  - docs/models/operations/responsebody.md
+  - docs/models/operations/reviewmodel.md
+  - docs/models/operations/searchdocumentsrequest.md
+  - docs/models/operations/sendchatmessagerequestbody.md
+  - docs/models/operations/updatebrainrequest.md
+  - docs/models/operations/updatebrainrequestbody.md
+  - docs/models/operations/updatechatthreadrequest.md
+  - docs/models/operations/updatechatthreadrequestbody.md
+  - docs/models/operations/uploaddocumentrequest.md
+  - docs/models/operations/uploaddocumentrequestbody.md
+  - docs/sdks/acp/README.md
+  - docs/sdks/brain/README.md
+  - docs/sdks/chat/README.md
+  - docs/sdks/chatbot/README.md
+  - docs/sdks/document/README.md
+  - docs/sdks/integration/README.md
+  - docs/sdks/ogranisation/README.md
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/brainCreateBrain.ts
+  - src/funcs/brainCreateDocumentWithUrl.ts
+  - src/funcs/brainCreateTextDocument.ts
+  - src/funcs/brainDeleteBrain.ts
+  - src/funcs/brainGetBrain.ts
+  - src/funcs/brainGetBrains.ts
+  - src/funcs/brainGetDocuments.ts
+  - src/funcs/brainSearchDocuments.ts
+  - src/funcs/brainUpdateBrain.ts
+  - src/funcs/brainUploadDocument.ts
+  - src/funcs/chatCreateChatThread.ts
+  - src/funcs/chatCreateChatThreadWithMsg.ts
+  - src/funcs/chatDeleteChatThread.ts
+  - src/funcs/chatGetChat.ts
+  - src/funcs/chatGetChatThread.ts
+  - src/funcs/chatListChatThreads.ts
+  - src/funcs/chatSendChatMessage.ts
+  - src/funcs/chatUpdateChatThread.ts
+  - src/funcs/chatbotGetChatbotAnalytics.ts
+  - src/funcs/chatbotGetChatbotGetMessages.ts
+  - src/funcs/chatbotGetChatbotList.ts
+  - src/funcs/chatbotPostChatbotCreate.ts
+  - src/funcs/chatbotPostChatbotDelete.ts
+  - src/funcs/chatbotPostChatbotGet.ts
+  - src/funcs/chatbotPostChatbotReset.ts
+  - src/funcs/chatbotPostChatbotUpdate.ts
+  - src/funcs/documentCreateDocumentReview.ts
+  - src/funcs/documentDeleteDocument.ts
+  - src/funcs/documentDownloadDocument.ts
+  - src/funcs/documentGetDocument.ts
+  - src/funcs/documentListDocumentReviews.ts
+  - src/funcs/integrationGetIntegrationIntegrationNameList.ts
+  - src/funcs/integrationPostIntegrationIntegrationNameAdd.ts
+  - src/funcs/integrationPostIntegrationIntegrationNameConnect.ts
+  - src/funcs/integrationPostIntegrationIntegrationNameDisconnect.ts
+  - src/funcs/ogranisationGetOrganisation.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/models/components/brain.ts
+  - src/models/components/chat.ts
+  - src/models/components/chatbotanalytics.ts
+  - src/models/components/chatbotmessages.ts
+  - src/models/components/chatbotresponse.ts
+  - src/models/components/chatinteraction.ts
+  - src/models/components/deleteresponse.ts
+  - src/models/components/document.ts
+  - src/models/components/documentreview.ts
+  - src/models/components/documentreviewdetail.ts
+  - src/models/components/index.ts
+  - src/models/components/security.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/sdkerror.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/uploaddocument.ts
+  - src/models/operations/createbrain.ts
+  - src/models/operations/createchatthread.ts
+  - src/models/operations/createchatthreadwithmsg.ts
+  - src/models/operations/createdocumentreview.ts
+  - src/models/operations/createdocumentwithurl.ts
+  - src/models/operations/createtextdocument.ts
+  - src/models/operations/deletebrain.ts
+  - src/models/operations/deletechatthread.ts
+  - src/models/operations/deletedocument.ts
+  - src/models/operations/downloaddocument.ts
+  - src/models/operations/getbrain.ts
+  - src/models/operations/getchat.ts
+  - src/models/operations/getchatbotanalytics.ts
+  - src/models/operations/getchatbotgetmessages.ts
+  - src/models/operations/getchatbotlist.ts
+  - src/models/operations/getchatthread.ts
+  - src/models/operations/getdocument.ts
+  - src/models/operations/getdocuments.ts
+  - src/models/operations/getintegrationintegrationnamelist.ts
+  - src/models/operations/getorganisation.ts
+  - src/models/operations/index.ts
+  - src/models/operations/listdocumentreviews.ts
+  - src/models/operations/postchatbotcreate.ts
+  - src/models/operations/postchatbotdelete.ts
+  - src/models/operations/postchatbotget.ts
+  - src/models/operations/postchatbotreset.ts
+  - src/models/operations/postchatbotupdate.ts
+  - src/models/operations/postintegrationintegrationnameadd.ts
+  - src/models/operations/postintegrationintegrationnameconnect.ts
+  - src/models/operations/postintegrationintegrationnamedisconnect.ts
+  - src/models/operations/searchdocuments.ts
+  - src/models/operations/sendchatmessage.ts
+  - src/models/operations/updatebrain.ts
+  - src/models/operations/updatechatthread.ts
+  - src/models/operations/uploaddocument.ts
+  - src/sdk/brain.ts
+  - src/sdk/chat.ts
+  - src/sdk/chatbot.ts
+  - src/sdk/document.ts
+  - src/sdk/index.ts
+  - src/sdk/integration.ts
+  - src/sdk/ogranisation.ts
+  - src/sdk/sdk.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  create_brain:
+    "":
+      requestBody:
+        application/json: {"name": "Test - brain"}
+    "1":
+      requestBody:
+        application/json: {"name": "Test - brain"}
+      responses:
+        "200":
+          application/json: {"active_features": null, "brain_id": "a1ee4f4f-2af0-445b-aea9-62cb9ae1b3ef", "created_on": 1726882264.061685, "description": "", "document_count": 0, "language_code": "en", "metadata_schema": {}, "org_uuid": "07ccd2f0-2e2c-47e6-91b6-d872baf86448", "storage_bytes": 0, "supp_id": "", "title": "Test - brain", "type": "unstructured", "updated_on": 1726882264.092387}
+  get_brains:
+    "1":
+      responses:
+        "200":
+          application/json: [{"active_features": null, "brain_id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "created_on": 1716137128.912637, "description": "", "document_count": 0, "id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "language_code": "en", "metadata_schema": null, "org_uuid": "3bef451d-5bbd-4a6e-b504-6c491c3889fe", "storage_bytes": 0, "supp_id": "", "title": "Test Updated Brain", "type": "unstructured", "updated_on": 1716137146}]
+  create_text_document:
+    "":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      requestBody:
+        application/json: {"content": "What is an operating system? An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all of the other application programs in a computer............", "title": "oslecture3"}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 928780, "created_at": "<value>", "document_id": "<value>", "id": 99121, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://inexperienced-overheard.info/"}
+    "1":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 108846, "created_at": "<value>", "document_id": "<value>", "id": "0a7b731a-1aaf-4255-b047-12ebfd446f3c", "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://quick-witted-formula.net"}
+  create_document_with_url:
+    "":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 203320, "created_at": "<value>", "document_id": "<value>", "id": 917093, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://critical-availability.biz/"}
+    "1":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      requestBody:
+        application/json: {"url": "https://en.wikipedia.org/wiki/Artificial_intelligence"}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 49273, "created_at": "<value>", "document_id": "<value>", "id": "1e76fdda-dc07-45f0-a0f9-339148d3ae06", "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://soulful-grandson.net"}
+  update_brain:
+    "":
+      parameters:
+        path:
+          brain_id: ""
+      requestBody:
+        application/json: {"name": "Test Updated Brain"}
+    "1":
+      parameters:
+        path:
+          brain_id: ""
+      requestBody:
+        application/json: {"name": "Test Updated Brain"}
+      responses:
+        "200":
+          application/json: {"active_features": null, "brain_id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "created_on": 1716137128.912637, "description": "", "document_count": 0, "id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "language_code": "en", "metadata_schema": null, "org_uuid": "3bef451d-5bbd-4a6e-b504-6c491c3889fe", "storage_bytes": 0, "supp_id": "", "title": "Test Updated Brain", "type": "unstructured", "updated_on": 1716137146}
+  get_brain:
+    "":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+    "1":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: {"active_features": null, "brain_id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "created_on": 1716137128.912637, "description": "", "document_count": 0, "id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "language_code": "en", "metadata_schema": null, "org_uuid": "3bef451d-5bbd-4a6e-b504-6c491c3889fe", "storage_bytes": 0, "supp_id": "", "title": "Test Updated Brain", "type": "unstructured", "updated_on": 1716137146}
+  delete_brain:
+    "":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: {"message": "Document deleted successfully."}
+    "1":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: {"message": "Knowledge base deleted."}
+  get_documents:
+    "":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: [{"brain_id": "<value>", "chunks": 111663, "created_at": "<value>", "document_id": "<value>", "id": 604088, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://definite-institute.info"}, {"brain_id": "<value>", "chunks": 14688, "created_at": "<value>", "document_id": "<value>", "id": 53985, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://burly-sunbeam.info"}]
+    "1":
+      parameters:
+        path:
+          brain_id: "{{brain_id}}"
+      responses:
+        "200":
+          application/json: [{"brain_id": "e46c625f-9057-4e0c-88ba-3a27d0c34748", "chunks": 0, "created_at": "Sat, 21 Sep 2024 00:08:12 GMT", "document_id": "2c3bad22-dd58-41c4-a6a5-50ccd2f513a4", "id": 5575, "name": "pg16.pdf", "status": "COMPLETE", "type": "file", "url": "https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/b551edf3eb46430b884ca8c720e0004f-pg16.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXZ5NGMGNXDFENIAQ%2F20240921%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240921T000812Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1e09eda7ebcb5a60f5aa57e498bba0a7aed86b7821eca83a0d782f50c9465512"}]
+  upload_document:
+    "":
+      parameters:
+        path:
+          brain_id: ""
+      requestBody:
+        multipart/form-data: {"file": {"": ""}}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 388624, "created_at": "<value>", "document_id": "<value>", "id": 238591, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://thin-carnival.com"}
+        "400": {}
+        "500": {}
+  search_documents:
+    "":
+      parameters:
+        path:
+          brain_id: ""
+        query: {}
+      responses:
+        "200":
+          application/json: [{"brain_id": "<value>", "chunks": 247949, "created_at": "<value>", "document_id": "<value>", "id": 521974, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://honorable-behest.com"}]
+    "1":
+      parameters:
+        path:
+          brain_id: ""
+        query: {}
+      responses:
+        "200":
+          application/json: [{"brain_id": "73dcff5b-efce-4d3f-a7c7-6dec3c195175", "chunks": 464, "created_at": "Wed, 31 Jul 2024 16:29:14 GMT", "document_id": "caa99f41-264a-4206-bbee-33ae964d631c", "id": 4645, "name": "PANSALB Annual-Report-2021-2022.pdf", "status": "COMPLETE", "type": "file", "url": "https://8d14e75b78613596eb36d95900f46a4e.r2.cloudflarestorage.com/athena/b139d3428610483a8c1e2796844c9b53-PANSALB%20Annual-Report-2021-2022.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=8e591b165b9623eef5270c5e16393d0b%2F20240731%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20240731T162914Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=85ef139448ef368d4da4eb1c0b804b8cec774ccf95f775863b683e551fd40ad3"}, {"brain_id": "73dcff5b-efce-4d3f-a7c7-6dec3c195175", "chunks": 777, "created_at": "Wed, 31 Jul 2024 16:30:04 GMT", "document_id": "96070e1c-b4fa-4c51-843e-32c6d1e8ddfb", "id": 4646, "name": "Annual Report - 2022-23.pdf", "status": "COMPLETE", "type": "file", "url": "https://8d14e75b78613596eb36d95900f46a4e.r2.cloudflarestorage.com/athena/5cf17b4c0cbb4663b270f51f3b606db0-Annual%20Report%20-%202022-23.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=8e591b165b9623eef5270c5e16393d0b%2F20240731%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20240731T163004Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=89580f2b1f58f9a421df486f4582a5e317c18824cbde475b736435b225a72705"}]
+  download_document:
+    "":
+      parameters:
+        path:
+          document_id: "a00f07cb-c04c-4824-9b26-5b7eb5c274ae"
+    "1":
+      parameters:
+        path:
+          document_id: "a00f07cb-c04c-4824-9b26-5b7eb5c274ae"
+      responses:
+        "200":
+          application/json: {"url": "https://8d14e75b78613596eb36d95900f46a4e.r2.cloudflarestorage.com/athena/e41bfe56cc6141f0af74a497d18500ec-ReactJSNotesForProfessionals.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=8e591b165b9623eef5270c5e16393d0b%2F20240512%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20240512T185806Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56d79bafb1a7102ffaf3820bd505efd78ebd2babe57e96cde7155900a7c43822"}
+  get_document:
+    "":
+      parameters:
+        path:
+          document_id: "020d69cb-197b-47ef-911b-ee45ee260839"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chunks": 510666, "created_at": "<value>", "document_id": "<value>", "id": 203240, "name": "<value>", "status": "<value>", "type": "<value>", "url": "https://deficient-inspection.biz/"}
+  delete_document:
+    "":
+      parameters:
+        path:
+          document_id: "5ca417c0-6d74-4752-a9cd-e2813ea67fd6"
+      responses:
+        "200":
+          application/json: {"message": "Document deleted successfully."}
+    "1":
+      parameters:
+        path:
+          document_id: "5ca417c0-6d74-4752-a9cd-e2813ea67fd6"
+      responses:
+        "200":
+          application/json: {"message": "Document deleted successfully."}
+  createDocumentReview: {}
+  listDocumentReviews: {}
+  create_chat_thread:
+    "":
+      requestBody:
+        application/json: {"brain_id": "e46c625f-9057-4e0c-88ba-3a27d0c34748", "name": "Test API Chat Thread", "integration": "files"}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "CX-9", "system_message": "<value>", "temperature": "398.03", "title": "<value>", "user_id": "<value>"}
+    "1":
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Camry", "system_message": "<value>", "temperature": "4062.70", "title": "<value>", "user_id": "<value>"}
+  list_chat_threads:
+    speakeasy-default-list-chat-threads:
+      responses:
+        "200":
+          application/json: [{"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "A8", "system_message": "<value>", "temperature": "1113.34", "title": "<value>", "user_id": "<value>"}, {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Silverado", "system_message": "<value>", "temperature": "136.10", "title": "<value>", "user_id": "<value>"}, {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "A4", "system_message": "<value>", "temperature": "5870.93", "title": "<value>", "user_id": "<value>"}]
+  get_chat_thread:
+    "":
+      parameters:
+        path:
+          chat_id: "{{chat_id}}"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "CX-9", "system_message": "<value>", "temperature": "7970.54", "title": "<value>", "user_id": "<value>"}
+    "1":
+      parameters:
+        path:
+          chat_id: "{{chat_id}}"
+      responses:
+        "200":
+          application/json: {"brain_id": "e46c625f-9057-4e0c-88ba-3a27d0c34748", "chat_id": "8be10463-2234-4d4d-9fd5-17773e0e6f55", "created_at": "Sat, 21 Sep 2024 10:54:32 GMT", "created_from": "API", "last_updated": "Sat, 21 Sep 2024 10:54:32 GMT", "model": "gpt-4o-mini", "system_message": "", "temperature": null, "title": "Test API Chat Thread", "user_id": "7c4b9f75-cda3-4d32-a5bb-6d1f7352ff7b"}
+  update_chat_thread:
+    "":
+      parameters:
+        path:
+          chat_id: "{{chat_id}}"
+      requestBody:
+        application/json: {"temperature": 0.3, "name": "Updated name", "system_message": "You are a customer support bot for ByteLeap."}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Wrangler", "system_message": "<value>", "temperature": "2992.28", "title": "<value>", "user_id": "<value>"}
+    "1":
+      parameters:
+        path:
+          chat_id: "{{chat_id}}"
+      requestBody:
+        application/json: {"temperature": null, "name": "Test_chat2", "system_message": "test system message"}
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Escalade", "system_message": "<value>", "temperature": "9845.49", "title": "<value>", "user_id": "<value>"}
+  delete_chat_thread:
+    "":
+      parameters:
+        path:
+          chat_id: "8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Silverado", "system_message": "<value>", "temperature": "1418.46", "title": "<value>", "user_id": "<value>"}
+    "1":
+      parameters:
+        path:
+          chat_id: "8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa"
+      responses:
+        "200":
+          application/json: {"brain_id": "<value>", "chat_id": "<value>", "created_at": "<value>", "created_from": "<value>", "last_updated": "<value>", "model": "Taurus", "system_message": "<value>", "temperature": "1462.51", "title": "<value>", "user_id": "<value>"}
+  create_chat_thread_with_msg:
+    "":
+      requestBody:
+        application/json: {"brain_id": "<value>", "name": "Slack Chat - 2024-06-26T12:34:56.789Z", "message": "<value>"}
+    "1":
+      requestBody:
+        application/json: {"brain_id": "<value>", "name": "Slack Chat - 2024-06-26T12:34:56.789Z", "message": "Hello, how can I assist you today?"}
+      responses:
+        "200":
+          application/json: [{"actor": "AI", "created_at": "Sat, 21 Sep 2024 11:55:14 GMT", "id": 4333, "message": "Amazon is a multinational technology company based in the United States, primarily known for its e-commerce platform. Founded by Jeff Bezos in 1994, it started as an online bookstore and has since expanded to sell a wide variety of products and services, including electronics, clothing, groceries, and digital content.\n\nIn addition to its retail operations, Amazon is involved in various sectors, including:\n\n1. **Cloud Computing**: Amazon Web Services (AWS) is a leading cloud services provider, offering computing power, storage, and other services to businesses and individuals.\n\n2. **Digital Streaming**: Amazon Prime Video is a popular streaming service that offers movies, TV shows, and original content.\n\n3. **Artificial Intelligence**: Amazon has developed AI technologies, including the Alexa voice assistant and various machine learning services.\n\n4. **Logistics and Delivery**: Amazon has invested heavily in its logistics network, including warehouses and delivery services, to ensure fast shipping for its customers.\n\n5. **Consumer Electronics**: The company produces devices such as the Kindle e-reader, Fire tablets, and Echo smart speakers.\n\nOverall, Amazon has become one of the largest and most influential companies in the world, impacting various industries and consumer behavior.", "metadata": {}, "model": "gpt-4o-mini", "reference": [], "thread_id": "6b6a092d-8f6e-48e8-bde8-b013a211b6ae", "timestamp": "Sat, 21 Sep 2024 11:55:14 GMT", "user_credits": 197}]
+  send_chat_message:
+    "":
+      requestBody:
+        application/json: {"chat_thread_id": "6b6a092d-8f6e-48e8-bde8-b013a211b6ae", "text": "What is the customer motto of Amazon in one line"}
+    "1":
+      requestBody:
+        application/json: {"chat_thread_id": "d504386d-6cba-4e38-96f0-aa16b83e1cd8", "text": "hi"}
+      responses:
+        "200":
+          application/json: [{"actor": "AI", "created_at": "Sat, 21 Sep 2024 11:56:39 GMT", "dw_data": {}, "id": 4335, "message": "Amazon's customer motto is \"Customer Obsession,\" emphasizing a commitment to prioritizing customer needs and satisfaction in all aspects of its business.", "metadata": {}, "model": "gpt-4o-mini", "reference": [], "thread_id": "6b6a092d-8f6e-48e8-bde8-b013a211b6ae", "timestamp": "Sat, 21 Sep 2024 11:56:39 GMT", "user_credits": 196}]
+  get_chat:
+    "1":
+      parameters:
+        path:
+          chatId: "<value>"
+      responses:
+        "200":
+          application/json: [{"actor": "USER", "created_at": "Mon, 20 May 2024 06:11:58 GMT", "id": 1947, "message": "hi", "metadata": {}, "reference": [], "thread_id": "d504386d-6cba-4e38-96f0-aa16b83e1cd8", "timestamp": "Mon, 20 May 2024 06:11:58 GMT"}]
+    "2":
+      parameters:
+        path:
+          chatId: "<value>"
+      responses:
+        "200":
+          application/json: [{"actor": "AI", "created_at": "Mon, 20 May 2024 06:12:02 GMT", "id": 1948, "message": "Hello! How can I assist you today?", "metadata": {}, "reference": [], "thread_id": "d504386d-6cba-4e38-96f0-aa16b83e1cd8", "timestamp": "Mon, 20 May 2024 06:12:02 GMT"}]
+  post_/chatbot/create:
+    "":
+      requestBody:
+        application/json: {"name": "Chatbot -1", "brain_id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "urls": ["[\"https://byteleap.co\",\"https://ayushgoyal.dev\"]"]}
+      responses:
+        "200":
+          application/json: []
+    "1":
+      requestBody:
+        application/json: {"name": "Chatbot -1", "brain_id": "1f1d7a6a-e45b-4974-a0ba-98935650cb9c", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"]}
+      responses:
+        "200":
+          application/json: [{"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}]
+  get_/chatbot/list:
+    "1":
+      responses:
+        "200":
+          application/json: [{"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}]
+    "2":
+      responses:
+        "200":
+          application/json: [{"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}]
+  post_/chatbot/get:
+    "":
+      parameters:
+        query:
+          chatbot_id: "7a2e792d-cf48-49d2-a36d-186be034a9dc"
+      responses:
+        "200":
+          application/json: {"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}
+    "1":
+      parameters:
+        query:
+          chatbot_id: "7a2e792d-cf48-49d2-a36d-186be034a9dc"
+      responses:
+        "200":
+          application/json: {"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}
+  get_/chatbot/analytics:
+    "":
+      parameters:
+        query:
+          chatbot_id: "1a718a80-71c0-414b-915c-5c5991597ac7"
+      responses:
+        "200":
+          application/json: {"number_of_chats": 1, "number_of_messages": 2}
+    "1":
+      parameters:
+        query:
+          chatbot_id: "1a718a80-71c0-414b-915c-5c5991597ac7"
+      responses:
+        "200":
+          application/json: {"number_of_chats": 1, "number_of_messages": 2}
+  get_/chatbot/get_messages:
+    "":
+      parameters:
+        query:
+          chatbot_id: "1a718a80-71c0-414b-915c-5c5991597ac7"
+      responses:
+        "200":
+          application/json: {"chat_messages": [{"actor": "USER", "created_at": "2024-05-20T06:46:09.010233+00:00", "id": 461, "message": "hi", "thread_id": "7c621be0-96d8-4ecc-9149-74d0ff94f106", "timestamp": null}]}
+    "1":
+      parameters:
+        query:
+          chatbot_id: "1a718a80-71c0-414b-915c-5c5991597ac7"
+      responses:
+        "200":
+          application/json: {"chat_messages": [{"actor": "USER", "created_at": "2024-05-20T06:46:09.010233+00:00", "id": 461, "message": "hi", "reference": [], "thread_id": "7c621be0-96d8-4ecc-9149-74d0ff94f106", "timestamp": null}, {"actor": "AI", "created_at": "2024-05-20T06:46:12.300393+00:00", "id": 462, "message": "Hello! How can I assist you today?", "reference": [], "thread_id": "7c621be0-96d8-4ecc-9149-74d0ff94f106", "timestamp": null}]}
+  post_/chatbot/update:
+    "":
+      requestBody:
+        application/json: {"name": "Chatbot -1", "urls": ["[\"https://byteleap.co\",\"https://ayushgoyal.dev\"]"]}
+      responses:
+        "200":
+          application/json: [{"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}]
+    "1":
+      requestBody:
+        application/json: {"chatbot_id": "1a718a80-71c0-414b-915c-5c5991597ac7", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://anshgoyal.com"]}
+      responses:
+        "200":
+          application/json: [{"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Updated Name", "urls": ["https://byteleap.co", "https://anshgoyal.com"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}]
+  post_/chatbot/delete:
+    "":
+      parameters:
+        query:
+          chatbot_id: "2de69bc3-3f60-46a2-be30-e95c98ab7a87"
+      responses:
+        "200":
+          application/json: {"message": "Document deleted successfully."}
+    "1":
+      parameters:
+        query:
+          chatbot_id: "2de69bc3-3f60-46a2-be30-e95c98ab7a87"
+      responses:
+        "200":
+          application/json: {"message": "Chat bot deleted."}
+  post_/chatbot/reset:
+    "":
+      parameters:
+        query:
+          chatbot_id: "c7af119a-a5c6-47a4-a5fd-fbf96ef08851"
+      responses:
+        "200":
+          application/json: {"api_key": "83816958-931c-42c0-9a21-c6f61c7cdcdb", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Chatbot -1", "urls": ["https://byteleap.co", "https://ayushgoyal.dev"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}
+    "1":
+      parameters:
+        query:
+          chatbot_id: "c7af119a-a5c6-47a4-a5fd-fbf96ef08851"
+      responses:
+        "200":
+          application/json: {"api_key": "fe527e6f-9518-4200-93ef-e082ba2467a5", "brain_id": "37d53982-bf08-4058-88d5-f91df0a7ab41", "created_at": "2024-02-18T19:00:11.989503+00:00", "id": "7a2e792d-cf48-49d2-a36d-186be034a9dc", "name": "Updated Name", "urls": ["https://byteleap.co", "https://anshgoyal.com"], "user_id": "a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c"}
+  post_/integration/{integration_name}/connect/:
+    "":
+      parameters:
+        path:
+          integration_name: "notion"
+      responses:
+        "200":
+          application/json: {"url": "https://api.notion.com/v1/oauth/authorize?response_type=code&client_id=a96174bc-de34-4892-927b-b7eb234d1794&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fintegration%2Fnotion%2Fcallback&state=x6FYlEiFfwvxtuOuuN7oFMjJPOpRBE"}
+  post_/integration/{integration_name}/disconnect/:
+    "":
+      parameters:
+        path:
+          integration_name: "notion"
+  get_/integration/{integration_name}/list:
+    "":
+      parameters:
+        path:
+          integration_name: "confluence"
+      responses:
+        "200":
+          application/json: [{"created_at": "2024-05-20T06:19:00.209Z", "id": "65620", "title": "Getting started in Confluence", "updated_at": "2024-05-20T06:19:00.209Z", "url": "https://shreyaans20.atlassian.net/wiki/spaces/~712020b4e5987a0eaa4fae8878f723efab571b/pages/65620/Getting+started+in+Confluence"}]
+  post_/integration/{integration_name}/add:
+    "":
+      parameters:
+        path:
+          integration_name: "notion"
+      responses:
+        "200":
+          application/json: {"message": "Pages are being added to the brain."}
+  get_/organisation/:
+    speakeasy-default-get-/organisation/:
+      responses:
+        "200":
+          application/json: {"created_at": "Thu, 16 May 2024 18:57:16 GMT", "id": 62, "name": "Organization for ___", "org_uuid": "989ad142-ab62-4e6b-92b6-83a25dec3151", "role": "admin", "user_uuid": "6cc35c0a-5095-4677-ac22-843a68138f53"}

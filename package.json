@@ -1,9 +1,13 @@
 {
   "name": "@athena-ai/sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Speakeasy",
   "main": "./index.js",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byteleaphq/athena-typescript.git"
+  },
   "scripts": {
     "lint": "eslint --max-warnings=0 src",
     "build": "tsc",

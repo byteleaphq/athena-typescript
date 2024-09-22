@@ -2,16 +2,17 @@ speakeasyVersion: 1.401.2
 sources:
     acp-OAS:
         sourceNamespace: acp-oas
-        sourceRevisionDigest: sha256:e1e7e52492a0360695c532b264291549177af7f78351ae78209dd20a1fdff195
-        sourceBlobDigest: sha256:e0fa4acb2f973a783a573fcf1964a582238ce0a23038a1a04fc3daae00b6981f
+        sourceRevisionDigest: sha256:2cd1f7236e6e0cd867ef92d1bc46f60d89d75f3c0f95755964fe8aa7c83297da
+        sourceBlobDigest: sha256:c57c5722282e7e73d97cbcf016209b249f39f18e62d8b70f6909914ba15debdb
         tags:
             - latest
+            - main
 targets:
     acp:
         source: acp-OAS
         sourceNamespace: acp-oas
-        sourceRevisionDigest: sha256:e1e7e52492a0360695c532b264291549177af7f78351ae78209dd20a1fdff195
-        sourceBlobDigest: sha256:e0fa4acb2f973a783a573fcf1964a582238ce0a23038a1a04fc3daae00b6981f
+        sourceRevisionDigest: sha256:2cd1f7236e6e0cd867ef92d1bc46f60d89d75f3c0f95755964fe8aa7c83297da
+        sourceBlobDigest: sha256:c57c5722282e7e73d97cbcf016209b249f39f18e62d8b70f6909914ba15debdb
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

@@ -1,12 +1,14 @@
 lockVersion: 2.0.0
 id: 773216f8-e852-4014-b1fb-cdae58377629
 management:
-  docChecksum: 9afbdd728be793589acc9ca8a65edc30
+  docChecksum: 7a75012d0f903842743686bbf0c09f7c
   docVersion: 1.0.0
   speakeasyVersion: 1.401.2
   generationVersion: 2.421.3
-  releaseVersion: 0.0.2
-  configChecksum: 48d44ff3842f281be73f4c58c9050937
+  releaseVersion: 0.0.3
+  configChecksum: 9abef979808d88cd60571400b3fbf6b3
+  repoURL: https://github.com/byteleaphq/athena-typescript.git
+  installationURL: https://github.com/byteleaphq/athena-typescript
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -352,7 +354,7 @@ examples:
           brain_id: "{{brain_id}}"
       responses:
         "200":
-          application/json: [{"brain_id": "e46c625f-9057-4e0c-88ba-3a27d0c34748", "chunks": 0, "created_at": "Sat, 21 Sep 2024 00:08:12 GMT", "document_id": "2c3bad22-dd58-41c4-a6a5-50ccd2f513a4", "id": 5575, "name": "pg16.pdf", "status": "COMPLETE", "type": "file", "url": "https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/b551edf3eb46430b884ca8c720e0004f-pg16.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXZ5NGMGNXDFENIAQ%2F20240921%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240921T000812Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1e09eda7ebcb5a60f5aa57e498bba0a7aed86b7821eca83a0d782f50c9465512"}]
+          application/json: [{"brain_id": "e46c625f-9057-4e0c-88ba-3a27d0c34748", "chunks": 0, "created_at": "Sat, 21 Sep 2024 00:08:12 GMT", "document_id": "2c3bad22-dd58-41c4-a6a5-50ccd2f513a4", "id": 5575, "name": "pg16.pdf", "status": "COMPLETE", "type": "file", "url": "https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/b551edf3eb46430b884ca8c720e0004f-pg16.pdf?X-Amz-Algorithm=xxx"}]
   upload_document:
     "":
       parameters:

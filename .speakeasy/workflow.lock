@@ -1,0 +1,30 @@
+speakeasyVersion: 1.423.5
+sources:
+    acp-OAS:
+        sourceNamespace: acp-oas
+        sourceRevisionDigest: sha256:7450df1424ea46fb41519a05264d1abd8c3faa2f540e7a610415488c851f3ec3
+        sourceBlobDigest: sha256:4ee809424fde9bb3abf701793c2ca0016ead722cfbc2b236cef125e99f4fe3ef
+        tags:
+            - latest
+targets:
+    acp:
+        source: acp-OAS
+        sourceNamespace: acp-oas
+        sourceRevisionDigest: sha256:7450df1424ea46fb41519a05264d1abd8c3faa2f540e7a610415488c851f3ec3
+        sourceBlobDigest: sha256:4ee809424fde9bb3abf701793c2ca0016ead722cfbc2b236cef125e99f4fe3ef
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        acp-OAS:
+            inputs:
+                - location: ./Athena.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/byteleap-ct0/byteleap/acp-oas
+    targets:
+        acp:
+            target: typescript
+            source: acp-OAS
+            publish:
+                npm:
+                    token: $npm_token

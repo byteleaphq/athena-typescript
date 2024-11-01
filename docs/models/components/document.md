@@ -1,0 +1,38 @@
+# Document
+
+## Example Usage
+
+```typescript
+import { Document } from "@isosceles-ai/sdk/models/components";
+
+let value: Document = {
+  brainId: "<id>",
+  createdAt: "<value>",
+  documentId: "<id>",
+  id: 807319,
+  name: "<value>",
+  status: "<value>",
+  type: "<value>",
+  url: "https://impure-battle.net",
+  metadata: {
+    languageCode: "<value>",
+    originalUrl: "https://sentimental-substitution.org/",
+    originalObject: "<value>",
+    processed: false,
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                           | Type                                                                                                                                                            | Required                                                                                                                                                        | Description                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `brainId`                                                                                                                                                       | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | A unique identifier for the “brain” associated with this document or data object                                                                                |
+| `createdAt`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The timestamp indicating when the document or file was created                                                                                                  |
+| `documentId`                                                                                                                                                    | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | A unique identifier for the document associated with this object                                                                                                |
+| `id`                                                                                                                                                            | *number*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | An internal ID for this object                                                                                                                                  |
+| `name`                                                                                                                                                          | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The name of the file or document                                                                                                                                |
+| `status`                                                                                                                                                        | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The current status of the document processing.                                                                                                                  |
+| `type`                                                                                                                                                          | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The type of the document or file                                                                                                                                |
+| `url`                                                                                                                                                           | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | A URL link to access or download the file. This is likely a temporary signed URL from AWS S3, as it includes authentication details and an expiration timestamp |
+| `metadata`                                                                                                                                                      | [components.Metadata](../../models/components/metadata.md)                                                                                                      | :heavy_check_mark:                                                                                                                                              | Identifier for metadata object                                                                                                                                  |

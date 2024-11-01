@@ -1,0 +1,3014 @@
+openapi: 3.1.0
+info:
+  title: Athena copy
+  description: ''
+  version: 1.0.0
+tags:
+  - name: Brain
+  - name: Document
+  - name: Chat
+  - name: Chatbot
+  - name: Integration
+  - name: ogranisation
+paths:
+  /brain/:
+    post:
+      summary: Create Brain
+      deprecated: false
+      description: ''
+      operationId: create_brain
+      tags:
+        - Brain
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the brain
+                  examples:
+                    - Test - brain
+              required:
+                - name
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: &ref_0
+                $ref: '#/components/schemas/Brain'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    active_features: null
+                    brain_id: a1ee4f4f-2af0-445b-aea9-62cb9ae1b3ef
+                    created_on: 1726882264.061685
+                    description: ''
+                    document_count: 0
+                    language_code: en
+                    metadata_schema: {}
+                    org_uuid: 07ccd2f0-2e2c-47e6-91b6-d872baf86448
+                    storage_bytes: 0
+                    supp_id: ''
+                    title: Test - brain
+                    type: unstructured
+                    updated_on: 1726882264.092387
+          headers: {}
+      security:
+        - basic: []
+    get:
+      summary: Get All Brains
+      deprecated: false
+      description: ''
+      operationId: get_brains
+      tags:
+        - Brain
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_0
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    active_features: null
+                    brain_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    created_on: 1716137128.912637
+                    description: ''
+                    document_count: 0
+                    id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    language_code: en
+                    metadata_schema: null
+                    org_uuid: 3bef451d-5bbd-4a6e-b504-6c491c3889fe
+                    storage_bytes: 0
+                    supp_id: ''
+                    title: Test Updated Brain
+                    type: unstructured
+                    updated_on: 1716137146
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}/documents/text:
+    post:
+      summary: Create Text Document
+      deprecated: false
+      description: Create documents in a brain with plain text representation
+      operationId: create_text_document
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: '{{brain_id}}'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: Text that is to be added to the brain
+                title:
+                  type: string
+                  description: Title of the text document. This will also be the filename
+              required:
+                - content
+                - title
+            example:
+              content: >-
+                What is an operating system? An operating system (OS) is the
+                program that, after being initially loaded into the computer by
+                a boot program, manages all of the other application programs in
+                a computer............
+              title: oslecture3
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: &ref_1
+                $ref: '#/components/schemas/Document'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    chunk_header: null
+                    content: >-
+                      What is an operating system? An operating system (OS) is
+                      the program that, after being initially loaded into the
+                      computer by a boot program, manages all of the other
+                      application programs in a computer............
+                    created_on: 1715540036
+                    description: ''
+                    document_type: raw_text
+                    file_extension: .txt
+                    file_name: null
+                    id: 0a7b731a-1aaf-4255-b047-12ebfd446f3c
+                    knowledge_base_id: 930388ef-da14-46fb-9c63-0fc7364fa0e5
+                    link_to_source: null
+                    supp_id: ''
+                    title: null
+                    vectorization_status: PENDING
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}/documents/url:
+    post:
+      summary: Create Document by URL
+      deprecated: false
+      description: ''
+      operationId: create_document_with_url
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: '{{brain_id}}'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: Url of the website that you want to add
+              examples:
+                - url: https://en.wikipedia.org/wiki/Artificial_intelligence
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_1
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    chunk_header: null
+                    created_on: 1716137387
+                    description: null
+                    document_type: url
+                    file_name: null
+                    id: 1e76fdda-dc07-45f0-a0f9-339148d3ae06
+                    knowledge_base_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    link_to_source: https://en.wikipedia.org/wiki/Artificial_intelligence
+                    supp_id: null
+                    title: null
+                    vectorization_status: URL_SUBMITTED_FOR_SCRAPING
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}:
+    put:
+      summary: Update Brain
+      deprecated: false
+      description: ''
+      operationId: update_brain
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Updated name of the brain
+                  examples:
+                    - Test Updated Brain
+              required:
+                - name
+              examples:
+                - name: Test Updated Brain
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_0
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    active_features: null
+                    brain_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    created_on: 1716137128.912637
+                    description: ''
+                    document_count: 0
+                    id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    language_code: en
+                    metadata_schema: null
+                    org_uuid: 3bef451d-5bbd-4a6e-b504-6c491c3889fe
+                    storage_bytes: 0
+                    supp_id: ''
+                    title: Test Updated Brain
+                    type: unstructured
+                    updated_on: 1716137146
+          headers: {}
+      security:
+        - basic: []
+    get:
+      summary: Get Brain by ID
+      deprecated: false
+      description: ''
+      operationId: get_brain
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: '{{brain_id}}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_0
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    active_features: null
+                    brain_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    created_on: 1716137128.912637
+                    description: ''
+                    document_count: 0
+                    id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                    language_code: en
+                    metadata_schema: null
+                    org_uuid: 3bef451d-5bbd-4a6e-b504-6c491c3889fe
+                    storage_bytes: 0
+                    supp_id: ''
+                    title: Test Updated Brain
+                    type: unstructured
+                    updated_on: 1716137146
+          headers: {}
+      security:
+        - basic: []
+    delete:
+      summary: Delete Brain
+      deprecated: false
+      description: ''
+      operationId: delete_brain
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: '{{brain_id}}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: &ref_2
+                $ref: '#/components/schemas/DeleteResponse'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    message: Knowledge base deleted.
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}/documents:
+    get:
+      summary: List Documents
+      deprecated: false
+      description: ''
+      operationId: get_documents
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ''
+          required: true
+          example: '{{brain_id}}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_1
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - brain_id: e46c625f-9057-4e0c-88ba-3a27d0c34748
+                      chunks: 0
+                      created_at: Sat, 21 Sep 2024 00:08:12 GMT
+                      document_id: 2c3bad22-dd58-41c4-a6a5-50ccd2f513a4
+                      id: 5575
+                      name: pg16.pdf
+                      status: COMPLETE
+                      type: file
+                      url: >-
+                        https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/b551edf3eb46430b884ca8c720e0004f-pg16.pdf?X-Amz-Algorithm=
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}/documents/file:
+    post:
+      summary: Upload Document
+      deprecated: false
+      description: ''
+      operationId: upload_document
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: The ID of the knowledge base to which the document belongs
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_1
+          headers: {}
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+          headers: {}
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+          headers: {}
+      security:
+        - basic: []
+  /brain/{brain_id}/documents/search:
+    get:
+      summary: Search documents
+      deprecated: false
+      description: Search for documents within a specific brain
+      operationId: search_documents
+      tags:
+        - Brain
+      parameters:
+        - name: brain_id
+          in: path
+          description: ID of the brain to search in
+          required: true
+          example: ''
+          schema:
+            type: string
+            format: uuid
+        - name: search_query
+          in: query
+          description: Optional search query to filter documents
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    brain_id:
+                      type: string
+                    created_at:
+                      type: string
+                    document_id:
+                      type: string
+                    id:
+                      type: integer
+                    metadata:
+                      type: object
+                      properties:
+                        language_code:
+                          type: string
+                        original_object:
+                          type:
+                            - string
+                            - 'null'
+                        original_url:
+                          type: string
+                        processed:
+                          type: boolean
+                      required:
+                        - language_code
+                        - original_url
+                    name:
+                      type: string
+                    status:
+                      type: string
+                    type:
+                      type: string
+                    url:
+                      type: string
+                  required:
+                    - brain_id
+                    - created_at
+                    - document_id
+                    - id
+                    - metadata
+                    - name
+                    - status
+                    - type
+                    - url
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - brain_id: e42b1e43-96d5-4769-ab71-afe26d3b6b19
+                      created_at: Sun, 20 Oct 2024 17:40:19 GMT
+                      document_id: 944a2978-efbc-48a5-9656-7fecec32df4e
+                      id: 5589
+                      metadata:
+                        language_code: en
+                        original_object: >-
+                          https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/34bcc94d68524e8c9877b7e99b5bfce8-TestCV%2020180412.doc
+                        original_url: ''
+                        processed: false
+                      name: TestCV 20180412.docx
+                      status: COMPLETE
+                      type: file
+                      url: >-
+                        https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/34bcc94d68524e8c9877b7e99b5bfce8-TestCV%2020180412.docx
+          headers: {}
+      security:
+        - basic: []
+  /document/{document_id}/download:
+    get:
+      summary: Download
+      deprecated: false
+      description: ''
+      operationId: download_document
+      tags:
+        - Document
+      parameters:
+        - name: document_id
+          in: path
+          description: ''
+          required: true
+          example: a00f07cb-c04c-4824-9b26-5b7eb5c274ae
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    description: >-
+                      The URL to download the document file. This URL is a
+                      pre-signed URL that provides temporary access to the
+                      document file hosted on a cloud storage service.
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    url: >-
+                      https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/34bcc94d68524e8c9877b7e99b5bfce8-TestCV%2020180412.docx?X
+          headers: {}
+      security:
+        - basic: []
+  /document/{document_id}:
+    get:
+      summary: Get Document
+      deprecated: false
+      description: ''
+      operationId: get_document
+      tags:
+        - Document
+      parameters:
+        - name: document_id
+          in: path
+          description: ''
+          required: true
+          example: 58c46dda-59e0-4c85-8fa3-4882b7168903
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_1
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    brain_id: e42b1e43-96d5-4769-ab71-afe26d3b6b19
+                    created_at: Sun, 20 Oct 2024 17:40:19 GMT
+                    document_id: 944a2978-efbc-48a5-9656-7fecec32df4e
+                    id: 5589
+                    metadata:
+                      language_code: en
+                      original_object: >-
+                        https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/34bcc94d68524e8c9877b7e99b5bfce8-TestCV%2020180412.docx?X
+                      original_url: ''
+                      processed: false
+                    name: TestCV 20180412.docx
+                    status: COMPLETE
+                    type: file
+                    url: >-
+                      https://athena-copilot.s3.ap-south-1.amazonaws.com/athena/34bcc94d68524e8c9877b7e99b5bfce8-TestCV%2020180412.docx?X-Amz-Algorithm=A
+          headers: {}
+      security:
+        - basic: []
+    delete:
+      summary: Delete Document
+      deprecated: false
+      description: ''
+      operationId: delete_document
+      tags:
+        - Document
+      parameters:
+        - name: document_id
+          in: path
+          description: ''
+          required: true
+          example: 5ca417c0-6d74-4752-a9cd-e2813ea67fd6
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_2
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    message: Document deleted successfully.
+          headers: {}
+      security:
+        - basic: []
+  /document/review:
+    post:
+      summary: Create document review
+      deprecated: true
+      description: Create a new document review
+      operationId: createDocumentReview
+      tags:
+        - Document
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                brain_id:
+                  type: string
+                  format: uuid
+                document_id:
+                  type: string
+                  format: uuid
+                review_model:
+                  type: string
+                  enum:
+                    - gpt-3.5-turbo
+                    - claude-3-haiku
+                final_model:
+                  type: string
+                  enum:
+                    - gpt-3.5-turbo
+                    - gpt-4
+                    - claude-instant-1
+                    - claude-2
+                    - claude-3-haiku
+                    - claude-3-sonnet
+                    - claude-3-opus
+                    - mixtral
+                    - mistral-small
+                    - mistral-medium
+                    - mistral-large
+                active_reading_instructions:
+                  type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentReview'
+          headers: {}
+      security:
+        - basic: []
+    get:
+      summary: List document reviews
+      deprecated: true
+      description: Retrieve a list of document reviews
+      operationId: listDocumentReviews
+      tags:
+        - Document
+      parameters:
+        - name: brain_id
+          in: query
+          description: Optional brain ID to filter document reviews
+          required: false
+          example: 08719a8d-017e-41ad-ac35-65ef5d5189d9
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentReviewDetail'
+          headers: {}
+      security:
+        - basic: []
+  /chat/:
+    post:
+      summary: Create New Chat Thread
+      deprecated: false
+      description: Create a new chat instance
+      operationId: create_chat_thread
+      tags:
+        - Chat
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                brain_id:
+                  type: string
+                  description: The ID of the brain to associate with the chat
+                name:
+                  type: string
+                  description: The name of the chat
+                chat_message_type:
+                  type: string
+                  description: The type fo response interface
+                  enum:
+                    - TEXT
+                    - JSON
+                response_length:
+                  type:
+                    - string
+                    - 'null'
+                  enum:
+                    - SHORT
+                    - MEDIUM
+                    - LONG
+                  default: MEDIUM
+                  description: Configure response length
+                temperature:
+                  type:
+                    - number
+                    - 'null'
+                  minimum: 0
+                  maximum: 1
+                  description: between 0 and 1
+                system_message:
+                  type:
+                    - string
+                    - 'null'
+                  description: System message for the LLM
+                model:
+                  type:
+                    - string
+                    - 'null'
+                  default: gpt-4o-mini
+                  description: LLM Model to choose from
+              required:
+                - brain_id
+                - name
+                - chat_message_type
+            example:
+              brain_id: d42bca76-67d9-4ba4-9c13-b8e5d5f97744
+              name: Test API Chat Thread
+              chat_message_type: TEXT
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  brain_id:
+                    type: string
+                  chat_id:
+                    type: string
+                  created_at:
+                    type: string
+                  created_from:
+                    type: string
+                  last_updated:
+                    type: string
+                  model:
+                    type: string
+                  system_message:
+                    type: string
+                  temperature:
+                    anyOf:
+                      - type: number
+                      - type: 'null'
+                  title:
+                    type: string
+                  user_id:
+                    type: string
+                  response_length:
+                    type:
+                      - string
+                      - 'null'
+                    enum:
+                      - SHORT
+                      - MEDIUM
+                      - LONG
+                    default: MEDIUM
+                  chat_message_type:
+                    type: string
+                    enum:
+                      - TEXT
+                      - JSON
+                    default: TEXT
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    brain_id: d42bca76-67d9-4ba4-9c13-b8e5d5f97744
+                    chat_id: 480477d3-be70-4c0a-ae6a-614baebffb7e
+                    chat_message_type: TEXT
+                    created_at: Thu, 17 Oct 2024 16:57:28 GMT
+                    created_from: API
+                    last_updated: Thu, 17 Oct 2024 16:57:28 GMT
+                    model: gpt-4o-mini
+                    response_length: MEDIUM
+                    system_message: ''
+                    temperature: 0.2
+                    title: Test API Chat Thread
+                    user_id: a9d928bc-dec1-434a-9b6d-4f2ec73f5fa0
+          headers: {}
+      security:
+        - basic: []
+    get:
+      summary: List Chat Threads
+      deprecated: false
+      description: List chat threads for the current user id
+      operationId: list_chat_threads
+      tags:
+        - Chat
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: &ref_3
+                  $ref: '#/components/schemas/Chat'
+          headers: {}
+      security:
+        - basic: []
+  /chat/{chat_id}:
+    get:
+      summary: Get Chat Thread
+      deprecated: false
+      description: ''
+      operationId: get_chat_thread
+      tags:
+        - Chat
+      parameters:
+        - name: chat_id
+          in: path
+          description: ''
+          required: true
+          example: '{{chat_id}}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_3
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    brain_id: e46c625f-9057-4e0c-88ba-3a27d0c34748
+                    chat_id: 8be10463-2234-4d4d-9fd5-17773e0e6f55
+                    created_at: Sat, 21 Sep 2024 10:54:32 GMT
+                    created_from: API
+                    last_updated: Sat, 21 Sep 2024 10:54:32 GMT
+                    model: gpt-4o-mini
+                    sp_metadata: {}
+                    system_message: ''
+                    temperature: null
+                    title: Test API Chat Thread
+                    user_id: 7c4b9f75-cda3-4d32-a5bb-6d1f7352ff7b
+          headers: {}
+      security:
+        - basic: []
+    put:
+      summary: Update Chat Thread
+      deprecated: false
+      description: ''
+      operationId: update_chat_thread
+      tags:
+        - Chat
+      parameters:
+        - name: chat_id
+          in: path
+          description: ''
+          required: true
+          example: '{{chat_id}}'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                response_length:
+                  type:
+                    - string
+                    - 'null'
+                  enum:
+                    - SHORT
+                    - MEDIUM
+                    - LONG
+                  default: MEDIUM
+                  description: Configure response length
+                temperature:
+                  type:
+                    - number
+                    - 'null'
+                  minimum: 0
+                  maximum: 1
+                  description: between 0 and 1
+                system_message:
+                  type:
+                    - string
+                    - 'null'
+                  description: System message for the LLM
+                model:
+                  type:
+                    - string
+                    - 'null'
+                  default: gpt-4o-mini
+                  description: LLM Model to choose from
+            example:
+              temperature: 0.3
+              name: Updated name
+              system_message: You are a customer support bot for ByteLeap.
+              response_length: SHORT
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_3
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - brain_id: e46c625f-9057-4e0c-88ba-3a27d0c34748
+                      chat_id: 8be10463-2234-4d4d-9fd5-17773e0e6f55
+                      created_at: Sat, 21 Sep 2024 10:54:32 GMT
+                      created_from: API
+                      last_updated: Sat, 21 Sep 2024 10:54:32 GMT
+                      model: gpt-4o-mini
+                      sp_metadata: {}
+                      system_message: You are a customer support bot for ByteLeap.
+                      temperature: 0.3
+                      title: Updated name
+                      user_id: 7c4b9f75-cda3-4d32-a5bb-6d1f7352ff7b
+          headers: {}
+        x-200:OK:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    brain_id:
+                      type: string
+                    chat_id:
+                      type: string
+                    created_at:
+                      type: string
+                    created_from:
+                      type: string
+                    last_updated:
+                      type: string
+                    model:
+                      type: string
+                    sp_metadata:
+                      type: object
+                      properties: {}
+                    system_message:
+                      type: string
+                    temperature:
+                      type: number
+                    title:
+                      type: string
+                    user_id:
+                      type: string
+          headers: {}
+      security:
+        - basic: []
+    delete:
+      summary: Delete Chat Thread
+      deprecated: false
+      description: ''
+      operationId: delete_chat_thread
+      tags:
+        - Chat
+      parameters:
+        - name: chat_id
+          in: path
+          description: ''
+          required: true
+          example: 8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_3
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - brain_id: e46c625f-9057-4e0c-88ba-3a27d0c34748
+                      chat_id: fbe868d4-9c74-4a85-bf79-2ed2454d9ed6
+                      created_at: Sat, 21 Sep 2024 11:45:59 GMT
+                      created_from: API
+                      last_updated: Sat, 21 Sep 2024 11:45:59 GMT
+                      model: gpt-4o-mini
+                      sp_metadata: {}
+                      system_message: ''
+                      temperature: null
+                      title: Test API Chat Thread
+                      user_id: 7c4b9f75-cda3-4d32-a5bb-6d1f7352ff7b
+          headers: {}
+      security:
+        - basic: []
+  /chat/new-chat:
+    post:
+      summary: Create New Chat Thread With Message
+      deprecated: false
+      description: Create a new chat with the specified brain and message.
+      operationId: create_chat_thread_with_msg
+      tags:
+        - Chat
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                brain_id:
+                  type: string
+                  description: The ID of the brain to associate with the chat
+                name:
+                  type: string
+                  description: The name of the chat
+                  examples:
+                    - Slack Chat - 2024-06-26T12:34:56.789Z
+                message:
+                  type: string
+                  description: The initial message to start the chat
+                response_length:
+                  type:
+                    - string
+                    - 'null'
+                  enum:
+                    - SHORT
+                    - MEDIUM
+                    - LONG
+                  default: MEDIUM
+                  description: Configure response length
+                temperature:
+                  type:
+                    - number
+                    - 'null'
+                  minimum: 0
+                  maximum: 1
+                  description: between 0 and 1
+                system_message:
+                  type:
+                    - string
+                    - 'null'
+                  description: System message for the LLM
+                model:
+                  type:
+                    - string
+                    - 'null'
+                  default: gpt-4o-mini
+                  description: LLM Model to choose from
+                chat_message_type:
+                  type: string
+                  enum:
+                    - JSON
+                    - TEXT
+                  default: TEXT
+              required:
+                - brain_id
+                - name
+                - message
+              examples:
+                - brain_ids:
+                    - 2ad136c5-d2a2-4bbc-bc3d-974f9f88e86d
+                  name: Slack Chat - 2024-06-26T12:34:56.789Z
+                  message: Hello, how can I assist you today?
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: &ref_4
+                  $ref: '#/components/schemas/ChatInteraction'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - actor: AI
+                      created_at: Sat, 21 Sep 2024 11:55:14 GMT
+                      id: 4333
+                      message: >-
+                        Amazon is a multinational technology company based in
+                        the United States, primarily known for its e-commerce
+                        platform. Founded by Jeff Bezos in 1994, it started as
+                        an online bookstore and has since expanded to sell a
+                        wide variety of products and services, including
+                        electronics, clothing, groceries, and digital content.
+
+
+                        In addition to its retail operations, Amazon is involved
+                        in various sectors, including:
+
+
+                        1. **Cloud Computing**: Amazon Web Services (AWS) is a
+                        leading cloud services provider, offering computing
+                        power, storage, and other services to businesses and
+                        individuals.
+
+
+                        2. **Digital Streaming**: Amazon Prime Video is a
+                        popular streaming service that offers movies, TV shows,
+                        and original content.
+
+
+                        3. **Artificial Intelligence**: Amazon has developed AI
+                        technologies, including the Alexa voice assistant and
+                        various machine learning services.
+
+
+                        4. **Logistics and Delivery**: Amazon has invested
+                        heavily in its logistics network, including warehouses
+                        and delivery services, to ensure fast shipping for its
+                        customers.
+
+
+                        5. **Consumer Electronics**: The company produces
+                        devices such as the Kindle e-reader, Fire tablets, and
+                        Echo smart speakers.
+
+
+                        Overall, Amazon has become one of the largest and most
+                        influential companies in the world, impacting various
+                        industries and consumer behavior.
+                      metadata: {}
+                      model: gpt-4o-mini
+                      reference: []
+                      thread_id: 6b6a092d-8f6e-48e8-bde8-b013a211b6ae
+                      timestamp: Sat, 21 Sep 2024 11:55:14 GMT
+                      user_credits: 197
+          headers: {}
+      security:
+        - basic: []
+  /chat/get-response:
+    post:
+      summary: Send Chat Message
+      deprecated: false
+      description: ''
+      operationId: send_chat_message
+      tags:
+        - Chat
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_thread_id:
+                  type: string
+                  description: ID of chat to which you want to send message
+                text:
+                  type: string
+                  description: message
+                documents:
+                  type:
+                    - array
+                    - 'null'
+                  items:
+                    type: string
+                  description: Array of document ids
+              examples:
+                - chat_thread_id: d504386d-6cba-4e38-96f0-aa16b83e1cd8
+                  text: hi
+            example:
+              chat_thread_id: 6b6a092d-8f6e-48e8-bde8-b013a211b6ae
+              text: What is the customer motto of Amazon in one line
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_4
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    - actor: AI
+                      created_at: Sat, 21 Sep 2024 11:56:39 GMT
+                      dw_data: {}
+                      id: 4335
+                      message: >-
+                        Amazon's customer motto is "Customer Obsession,"
+                        emphasizing a commitment to prioritizing customer needs
+                        and satisfaction in all aspects of its business.
+                      metadata: {}
+                      model: gpt-4o-mini
+                      reference: []
+                      thread_id: 6b6a092d-8f6e-48e8-bde8-b013a211b6ae
+                      timestamp: Sat, 21 Sep 2024 11:56:39 GMT
+                      user_credits: 196
+          headers: {}
+      security:
+        - basic: []
+  /chat/{chatId}/interactions:
+    get:
+      summary: Get Chat Interactions
+      deprecated: false
+      description: ''
+      operationId: get_chat
+      tags:
+        - Chat
+      parameters:
+        - name: chatId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_4
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    actor: USER
+                    created_at: Mon, 20 May 2024 06:11:58 GMT
+                    id: 1947
+                    message: hi
+                    metadata: {}
+                    reference: []
+                    thread_id: d504386d-6cba-4e38-96f0-aa16b83e1cd8
+                    timestamp: Mon, 20 May 2024 06:11:58 GMT
+                '2':
+                  summary: Success
+                  value:
+                    actor: AI
+                    created_at: Mon, 20 May 2024 06:12:02 GMT
+                    id: 1948
+                    message: Hello! How can I assist you today?
+                    metadata: {}
+                    reference: []
+                    thread_id: d504386d-6cba-4e38-96f0-aa16b83e1cd8
+                    timestamp: Mon, 20 May 2024 06:12:02 GMT
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/create:
+    post:
+      summary: Create Chatbot
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the chatbot
+                  examples:
+                    - Chatbot -1
+                brain_id:
+                  type: string
+                  description: The ID of the brain associated with the chatbot
+                  examples:
+                    - 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                urls:
+                  type: array
+                  items:
+                    type: string
+                    description: An array of URLs associated with the chatbot
+                    examples:
+                      - - https://byteleap.co
+                        - https://ayushgoyal.dev
+              required:
+                - name
+                - brain_id
+                - urls
+              examples:
+                - name: Chatbot -1
+                  brain_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                  urls:
+                    - https://byteleap.co
+                    - https://ayushgoyal.dev
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: &ref_5
+                  $ref: '#/components/schemas/ChatbotResponse'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_key: 83816958-931c-42c0-9a21-c6f61c7cdcdb
+                    brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                    created_at: '2024-02-18T19:00:11.989503+00:00'
+                    id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                    name: Chatbot -1
+                    urls:
+                      - https://byteleap.co
+                      - https://ayushgoyal.dev
+                    user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/list:
+    get:
+      summary: List Chatbots
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters:
+        - name: brain_id
+          in: query
+          description: The ID of the brain to filter chatbots
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_5
+              examples:
+                '1':
+                  summary: List All Chatbots for User
+                  value:
+                    - api_key: 83816958-931c-42c0-9a21-c6f61c7cdcdb
+                      brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                      created_at: '2024-02-18T19:00:11.989503+00:00'
+                      id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                      name: Chatbot -1
+                      urls:
+                        - https://byteleap.co
+                        - https://ayushgoyal.dev
+                      user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+                '2':
+                  summary: List chatbots for brain
+                  value:
+                    - api_key: 83816958-931c-42c0-9a21-c6f61c7cdcdb
+                      brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                      created_at: '2024-02-18T19:00:11.989503+00:00'
+                      id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                      name: Chatbot -1
+                      urls:
+                        - https://byteleap.co
+                        - https://ayushgoyal.dev
+                      user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/get:
+    post:
+      summary: Get Chatbot
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters:
+        - name: chatbot_id
+          in: query
+          description: ''
+          required: false
+          example: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_5
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_key: 83816958-931c-42c0-9a21-c6f61c7cdcdb
+                    brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                    created_at: '2024-02-18T19:00:11.989503+00:00'
+                    id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                    name: Chatbot -1
+                    urls:
+                      - https://byteleap.co
+                      - https://ayushgoyal.dev
+                    user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/analytics:
+    get:
+      summary: Get Chatbot analytics
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters:
+        - name: chatbot_id
+          in: query
+          description: ''
+          required: false
+          example: 1a718a80-71c0-414b-915c-5c5991597ac7
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotAnalytics'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    number_of_chats: 1
+                    number_of_messages: 2
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/get_messages:
+    get:
+      summary: Get Chatbot messages
+      deprecated: false
+      description: 'note: there is a limit of 10000 messages'
+      tags:
+        - Chatbot
+      parameters:
+        - name: chatbot_id
+          in: query
+          description: ''
+          required: false
+          example: 1a718a80-71c0-414b-915c-5c5991597ac7
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotMessages'
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    chat_messages:
+                      - actor: USER
+                        created_at: '2024-05-20T06:46:09.010233+00:00'
+                        id: 461
+                        message: hi
+                        reference: []
+                        thread_id: 7c621be0-96d8-4ecc-9149-74d0ff94f106
+                        timestamp: null
+                      - actor: AI
+                        created_at: '2024-05-20T06:46:12.300393+00:00'
+                        id: 462
+                        message: Hello! How can I assist you today?
+                        reference: []
+                        thread_id: 7c621be0-96d8-4ecc-9149-74d0ff94f106
+                        timestamp: null
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/update:
+    post:
+      summary: Update Chatbot
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chatbot_id:
+                  type: string
+                  description: The id of the chatbot
+                name:
+                  type:
+                    - string
+                    - 'null'
+                  description: The name of the chatbot
+                  examples:
+                    - Chatbot -1
+                urls:
+                  type:
+                    - array
+                    - 'null'
+                  items:
+                    type: string
+                    description: An array of URLs associated with the chatbot
+                    examples:
+                      - - https://byteleap.co
+                        - https://ayushgoyal.dev
+              examples:
+                - chatbot_id: 1a718a80-71c0-414b-915c-5c5991597ac7
+                  urls:
+                    - https://byteleap.co
+                    - https://anshgoyal.com
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items: *ref_5
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_key: 83816958-931c-42c0-9a21-c6f61c7cdcdb
+                    brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                    created_at: '2024-02-18T19:00:11.989503+00:00'
+                    id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                    name: Updated Name
+                    urls:
+                      - https://byteleap.co
+                      - https://anshgoyal.com
+                    user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/delete:
+    post:
+      summary: Delete Chatbot
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters:
+        - name: chatbot_id
+          in: query
+          description: ''
+          required: false
+          example: 2de69bc3-3f60-46a2-be30-e95c98ab7a87
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_2
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    message: Chat bot deleted.
+          headers: {}
+      security:
+        - basic: []
+  /chatbot/reset:
+    post:
+      summary: Reset Token
+      deprecated: false
+      description: ''
+      tags:
+        - Chatbot
+      parameters:
+        - name: chatbot_id
+          in: query
+          description: ''
+          required: false
+          example: c7af119a-a5c6-47a4-a5fd-fbf96ef08851
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema: *ref_5
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_key: fe527e6f-9518-4200-93ef-e082ba2467a5
+                    brain_id: 37d53982-bf08-4058-88d5-f91df0a7ab41
+                    created_at: '2024-02-18T19:00:11.989503+00:00'
+                    id: 7a2e792d-cf48-49d2-a36d-186be034a9dc
+                    name: Updated Name
+                    urls:
+                      - https://byteleap.co
+                      - https://anshgoyal.com
+                    user_id: a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+          headers: {}
+      security:
+        - basic: []
+  /integration/{integration_name}/connect/:
+    post:
+      summary: Connect
+      deprecated: false
+      description: ''
+      tags:
+        - Integration
+      parameters:
+        - name: integration_name
+          in: path
+          description: >-
+            Currently supported integrations are "notion" and "confluence". More
+            integrations will be added in the future.
+          required: true
+          example: notion
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    description: URL to connect to the integration
+                    examples:
+                      - >-
+                        https://api.notion.com/v1/oauth/authorize?response_type=code&client_id=a96174bc-de34-4892-927b-b7eb234d1794&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fintegration%2Fnotion%2Fcallback&state=x6FYlEiFfwvxtuOuuN7oFMjJPOpRBE
+          headers: {}
+      security:
+        - basic: []
+  /integration/{integration_name}/disconnect/:
+    post:
+      summary: Disconnect
+      deprecated: false
+      description: ''
+      tags:
+        - Integration
+      parameters:
+        - name: integration_name
+          in: path
+          description: >-
+            Currently supported integrations are "notion" and "confluence". More
+            integrations will be added in the future.
+          required: true
+          example: notion
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Empty object
+                properties: {}
+          headers: {}
+      security:
+        - basic: []
+  /integration/{integration_name}/list:
+    get:
+      summary: List
+      deprecated: false
+      description: list pages from integration
+      tags:
+        - Integration
+      parameters:
+        - name: integration_name
+          in: path
+          description: >-
+            Currently supported integrations are "notion" and "confluence". More
+            integrations will be added in the future.
+          required: true
+          example: confluence
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Array of pages from the integration
+                items:
+                  type: object
+                  properties:
+                    content:
+                      type: object
+                      description: Content of the page
+                      properties: {}
+                    created_at:
+                      type: string
+                      description: Creation timestamp of the page
+                      examples:
+                        - '2024-05-20T06:19:00.209Z'
+                    id:
+                      type: string
+                      description: ID of the page
+                      examples:
+                        - '65620'
+                    title:
+                      type: string
+                      description: Title of the page
+                      examples:
+                        - Getting started in Confluence
+                    updated_at:
+                      type: string
+                      description: Last updated timestamp of the page
+                      examples:
+                        - '2024-05-20T06:19:00.209Z'
+                    url:
+                      type: string
+                      description: URL of the page
+                      examples:
+                        - >-
+                          https://shreyaans20.atlassian.net/wiki/spaces/~712020b4e5987a0eaa4fae8878f723efab571b/pages/65620/Getting+started+in+Confluence
+          headers: {}
+      security:
+        - basic: []
+  /integration/{integration_name}/add:
+    post:
+      summary: Add To Brain
+      deprecated: false
+      description: used to add pages to brain
+      tags:
+        - Integration
+      parameters:
+        - name: integration_name
+          in: path
+          description: >-
+            Currently supported integrations are "notion" and "confluence". More
+            integrations will be added in the future.
+          required: true
+          example: notion
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                brain_id:
+                  type: string
+                  description: ID of the brain to add pages to
+                page_ids:
+                  type: array
+                  description: Array of page IDs to add to the brain
+                  items:
+                    type: string
+                    description: An array of page_ids you want to add
+              examples:
+                - brain_id: 1f1d7a6a-e45b-4974-a0ba-98935650cb9c
+                  page_ids:
+                    - '65621'
+            example: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Message indicating the pages are being added to the brain
+                    examples:
+                      - Pages are being added to the brain.
+          headers: {}
+      security:
+        - basic: []
+  /organisation/:
+    get:
+      summary: get user org
+      deprecated: false
+      description: ''
+      tags:
+        - ogranisation
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created_at:
+                    type: string
+                    description: Creation timestamp of the organization
+                    examples:
+                      - Thu, 16 May 2024 18:57:16 GMT
+                  email:
+                    type: string
+                    description: Email associated with the organization
+                  id:
+                    type: integer
+                    description: ID of the organization
+                    examples:
+                      - 62
+                  name:
+                    type: string
+                    description: Name of the organization
+                    examples:
+                      - Organization for ___
+                  org_name:
+                    type:
+                      - string
+                      - 'null'
+                    description: Name of the organization (same as 'name')
+                  org_uuid:
+                    type: string
+                    description: UUID of the organization
+                    examples:
+                      - 989ad142-ab62-4e6b-92b6-83a25dec3151
+                  role:
+                    type: string
+                    description: Role of the user in the organization
+                    examples:
+                      - admin
+                  token:
+                    type: string
+                    description: Invite token for the organization
+                  user_uuid:
+                    type: string
+                    description: UUID of the user
+                    examples:
+                      - 6cc35c0a-5095-4677-ac22-843a68138f53
+          headers: {}
+      security:
+        - basic: []
+  /organisation/get-api-keys:
+    get:
+      summary: Get API Keys
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api_keys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        api_key:
+                          type: string
+                        name:
+                          type: string
+                  created_at:
+                    type: string
+                  email:
+                    type: string
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  org_name:
+                    type: string
+                  org_uuid:
+                    type: string
+                  role:
+                    type: string
+                  token:
+                    type: string
+                  user_uuid:
+                    type: string
+                required:
+                  - api_keys
+                  - created_at
+                  - email
+                  - id
+                  - name
+                  - org_name
+                  - org_uuid
+                  - role
+                  - token
+                  - user_uuid
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_keys:
+                      - api_key: ATHENA_xxxx
+                        name: Local dev
+                    created_at: Wed, 24 Apr 2024 16:12:25 GMT
+                    email: ayush@byteleap.co
+                    id: 4
+                    name: Organization for ayush@byteleap.co
+                    org_name: Organization for ayush@byteleap.co
+                    org_uuid: 07ccd2f0-2e2c-47e6-91b6-d872baf86448
+                    role: admin
+                    token: null
+                    user_uuid: 7c4b9f75-cda3-4d32-a5bb-6d1f7352ff7b
+          headers: {}
+      security:
+        - basic: []
+  /organisation/remove-api-key:
+    post:
+      summary: Delete API Key
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                api_key:
+                  type: string
+                  description: API key to delete
+              required:
+                - api_key
+            example:
+              api_key: ATHENA_MEEAASO736YMVN2A5SBQ
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api_keys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        api_key:
+                          type: string
+                        name:
+                          type: string
+                  created_at:
+                    type: string
+                  email:
+                    type: string
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  org_uuid:
+                    type: string
+                  token:
+                    type: 'null'
+                required:
+                  - api_keys
+                  - created_at
+                  - email
+                  - id
+                  - name
+                  - org_uuid
+                  - token
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_keys:
+                      - api_key: ATHENA_xxxxx
+                        name: Local dev
+                    created_at: Wed, 24 Apr 2024 16:12:25 GMT
+                    email: ayush@byteleap.co
+                    id: 4
+                    name: Organization for ayush@byteleap.co
+                    org_uuid: 07ccd2f0-2e2c-47e6-91b6-d872baf86448
+                    token: null
+          headers: {}
+      security:
+        - basic: []
+  /organisation/add-api-key:
+    post:
+      summary: Create API Key
+      deprecated: false
+      description: ''
+      operationId: add-api-key
+      tags: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                api_key_name:
+                  type: string
+                  description: Friendly API key name
+              required:
+                - api_key_name
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api_keys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        api_key:
+                          type: string
+                        name:
+                          type: string
+                      required:
+                        - api_key
+                        - name
+                  created_at:
+                    type: string
+                  email:
+                    type: string
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  org_uuid:
+                    type: string
+                  token:
+                    type: 'null'
+                required:
+                  - api_keys
+                  - created_at
+                  - email
+                  - id
+                  - name
+                  - org_uuid
+                  - token
+              examples:
+                '1':
+                  summary: Success
+                  value:
+                    api_keys:
+                      - api_key: ATHENA_xxxxx
+                        name: Local dev
+                      - api_key: ATHENA_yyyy
+                        name: laboriosam ab eligendi
+                    created_at: Wed, 24 Apr 2024 16:12:25 GMT
+                    email: ayush@byteleap.co
+                    id: 4
+                    name: Organization for ayush@byteleap.co
+                    org_uuid: 07ccd2f0-2e2c-47e6-91b6-d872baf86448
+                    token: null
+          headers: {}
+      security:
+        - basic: []
+  /tenant_admin/analytics:
+    get:
+      summary: Get Analytics
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  brains_count:
+                    type: integer
+                  brains_per_organisation:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        total:
+                          type: integer
+                      required:
+                        - name
+                        - total
+                  chat_message_count:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        total:
+                          type: integer
+                      required:
+                        - name
+                        - total
+                  document_count:
+                    type: integer
+                  document_per_brain:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        total:
+                          type: integer
+                      required:
+                        - name
+                        - total
+                  organisation_count:
+                    type: integer
+                  queries_per_brain:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        total:
+                          type: integer
+                      required:
+                        - name
+                        - total
+                  queries_per_organisation:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        total:
+                          type: integer
+                      required:
+                        - name
+                        - total
+                  user_count:
+                    type: integer
+                required:
+                  - brains_count
+                  - brains_per_organisation
+                  - chat_message_count
+                  - document_count
+                  - document_per_brain
+                  - organisation_count
+                  - queries_per_brain
+                  - queries_per_organisation
+                  - user_count
+          headers: {}
+      security:
+        - basic: []
+  /tenant_admin/users:
+    get:
+      summary: Get All Users
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        credits:
+                          type: integer
+                          description: Remaining credits in the day
+                        daily_credits:
+                          type: integer
+                          description: Daily credits which the user gets
+                        email:
+                          type: string
+                          description: Email of the User
+                        plan_name:
+                          type: string
+                          description: They subscription plan the user has
+                        user_id:
+                          type: string
+                          description: ID of the user
+                        first_name:
+                          type: string
+                          description: First name of the User
+                        last_name:
+                          type: string
+                          description: Last name of the User
+                      required:
+                        - credits
+                        - daily_credits
+                        - email
+                        - plan_name
+                        - user_id
+                        - first_name
+                        - last_name
+                required:
+                  - users
+          headers: {}
+      security:
+        - basic: []
+  /tenant_admin/users/{user_id}:
+    put:
+      summary: Update credits
+      deprecated: false
+      description: ''
+      tags: []
+      parameters:
+        - name: user_id
+          in: path
+          description: ''
+          required: true
+          example: a9d928bc-dec1-434a-9b6d-4f2ec73f5fa0
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                credits:
+                  type: number
+                daily_credits:
+                  type: integer
+              required:
+                - credits
+                - daily_credits
+            example:
+              credits: 100
+              daily_credits: 100
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                  - message
+          headers: {}
+      security:
+        - basic: []
+  /user/me:
+    get:
+      summary: Get User details
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    description: Email ID of the user
+                  external_user_id:
+                    type: string
+                    description: Clerk ID of the user
+                  first_name:
+                    type: string
+                    description: First name of the user
+                  id:
+                    type: string
+                    description: User ID
+                  last_name:
+                    type: string
+                    description: Last name of the user
+                  phone_number:
+                    type: string
+                    description: Phone number of the user
+                required:
+                  - email
+                  - external_user_id
+                  - first_name
+                  - id
+                  - last_name
+                  - phone_number
+          headers: {}
+      security:
+        - basic: []
+    put:
+      summary: Update User
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                phone_number:
+                  type: string
+              required:
+                - first_name
+                - last_name
+                - phone_number
+            example:
+              first_name: Arya
+              last_name: Nair
+              phone_number: '9920646238'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    description: Email ID of the user
+                  external_user_id:
+                    type: string
+                    description: Clerk ID of the user
+                  first_name:
+                    type: string
+                    description: First name of the user
+                  id:
+                    type: string
+                    description: User ID
+                  last_name:
+                    type: string
+                    description: Last name of the user
+                  phone_number:
+                    type: string
+                    description: Phone number of the user
+                required:
+                  - email
+                  - external_user_id
+                  - first_name
+                  - id
+                  - last_name
+                  - phone_number
+          headers: {}
+      security:
+        - basic: []
+components:
+  schemas:
+    Brain:
+      type: object
+      properties:
+        active_features:
+          type:
+            - object
+            - 'null'
+          description: Active features of the brain. Currently used internally
+          properties: {}
+        brain_id:
+          type: string
+          description: Unique identifier for the brain
+        created_on:
+          type: number
+          description: Timestamp when the brain was created
+        description:
+          type: string
+          description: Description of the brain
+        document_count:
+          type: integer
+          description: Number of documents in the brain
+        id:
+          type: string
+          description: Unique identifier for the brain (same as brain_id)
+        language_code:
+          type: string
+          description: Language code of the brain
+        metadata_schema:
+          type:
+            - object
+            - 'null'
+          description: Metadata schema for the brain
+          properties: {}
+        org_uuid:
+          type: string
+          description: Unique identifier for the organization
+        storage_bytes:
+          type: integer
+          description: Total storage size of the brain in bytes
+        supp_id:
+          type: string
+          description: Supplementary identifier for the brain
+        title:
+          type: string
+          description: Title or name of the brain
+        type:
+          type: string
+          description: Type of the brain (e.g., unstructured, structured)
+        updated_on:
+          type: number
+          description: Timestamp when the brain was last updated
+    Document:
+      type: object
+      properties:
+        brain_id:
+          type: string
+          description: >-
+            A unique identifier for the “brain” associated with this document or
+            data object
+        created_at:
+          type: string
+          description: The timestamp indicating when the document or file was created
+        document_id:
+          type: string
+          description: A unique identifier for the document associated with this object
+        id:
+          type: integer
+          description: An internal ID for this object
+        name:
+          type: string
+          description: The name of the file or document
+        status:
+          type: string
+          description: The current status of the document processing.
+        type:
+          type: string
+          description: The type of the document or file
+        url:
+          type: string
+          description: >-
+            A URL link to access or download the file. This is likely a
+            temporary signed URL from AWS S3, as it includes authentication
+            details and an expiration timestamp
+        metadata:
+          type:
+            - object
+            - 'null'
+          properties:
+            language_code:
+              type: string
+              description: 'Identifier for ISO language code '
+            original_url:
+              type: string
+              description: Identifier of the url for the original file
+            original_object:
+              type: string
+              description: URL link to access original object
+            processed:
+              type: boolean
+              description: Boolean to check whether the file is processed
+          required:
+            - language_code
+            - original_url
+            - original_object
+            - processed
+          description: 'Identifier for metadata object '
+      required:
+        - brain_id
+        - created_at
+        - document_id
+        - id
+        - name
+        - status
+        - type
+        - url
+        - metadata
+    DocumentReview:
+      type: object
+      properties:
+        created_on:
+          type: integer
+        doc_review_id:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        model:
+          type: string
+        review:
+          type: string
+        title:
+          type: string
+        user_credits:
+          type: integer
+    DocumentReviewDetail:
+      type: object
+      properties:
+        active_reading_model:
+          type: string
+          enum:
+            - gpt-3.5-turbo
+            - claude-3-haiku
+            - mixtral
+        brain_id:
+          type: string
+          format: uuid
+        created_on:
+          type: integer
+        doc_review_id:
+          type: string
+          format: uuid
+        document_id:
+          type: string
+          format: uuid
+        final_review_model:
+          type: string
+          enum:
+            - gpt-3.5-turbo
+            - gpt-4
+            - claude-instant-1
+            - claude-2
+            - claude-3-haiku
+            - claude-3-sonnet
+            - claude-3-opus
+            - mixtral
+            - mistral-small
+            - mistral-medium
+            - mistral-large
+        id:
+          type: integer
+        prompt:
+          type: string
+        review:
+          type: string
+        title:
+          type: string
+    UsersAdmin:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              credits:
+                type: integer
+                description: Remaining credits in the day
+              daily_credits:
+                type: integer
+                description: Daily credits which the user gets
+              email:
+                type: string
+                description: Email of the User
+              plan_name:
+                type: string
+                description: They subscription plan the user has
+              user_id:
+                type: string
+                description: ID of the user
+              first_name:
+                type: string
+                description: First name of the User
+              last_name:
+                type: string
+                description: Last name of the User
+            required:
+              - credits
+              - daily_credits
+              - email
+              - plan_name
+              - user_id
+              - first_name
+              - last_name
+      required:
+        - users
+    AdminAnalytics:
+      type: object
+      properties:
+        brains_count:
+          type: integer
+        brains_per_organisation:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              total:
+                type: integer
+            required:
+              - name
+              - total
+        chat_message_count:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              total:
+                type: integer
+            required:
+              - name
+              - total
+        document_count:
+          type: integer
+        document_per_brain:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              total:
+                type: integer
+            required:
+              - name
+              - total
+        organisation_count:
+          type: integer
+        queries_per_brain:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              total:
+                type: integer
+            required:
+              - name
+              - total
+        queries_per_organisation:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              total:
+                type: integer
+            required:
+              - name
+              - total
+        user_count:
+          type: integer
+      required:
+        - brains_count
+        - brains_per_organisation
+        - chat_message_count
+        - document_count
+        - document_per_brain
+        - organisation_count
+        - queries_per_brain
+        - queries_per_organisation
+        - user_count
+    Chat:
+      type: object
+      properties:
+        brain_id:
+          type: string
+        chat_id:
+          type: string
+        created_at:
+          type: string
+        created_from:
+          type: string
+        last_updated:
+          type: string
+        model:
+          type: string
+        system_message:
+          type: string
+        temperature:
+          anyOf:
+            - type: number
+            - type: 'null'
+        title:
+          type: string
+        user_id:
+          type: string
+        response_length:
+          type:
+            - string
+            - 'null'
+          enum:
+            - SHORT
+            - MEDIUM
+            - LONG
+          default: MEDIUM
+    ChatInteraction:
+      type: object
+      properties:
+        actor:
+          type: string
+          description: The actor (USER or AI) of the interaction
+        created_at:
+          type: string
+          description: The timestamp when the interaction was created
+        dw_data:
+          type:
+            - object
+            - 'null'
+          description: The data related to the data warehouse integration
+          properties: {}
+        id:
+          type: integer
+          description: The unique identifier of the interaction
+        message:
+          type: string
+          description: The message content of the interaction
+        metadata:
+          type:
+            - object
+            - 'null'
+          description: The metadata associated with the interaction
+          properties: {}
+        model:
+          type:
+            - string
+            - 'null'
+          description: The name of the model used for the interaction
+        reference:
+          type:
+            - array
+            - 'null'
+          items:
+            oneOf:
+              - *ref_1
+              - type: object
+                properties: {}
+          description: The list of references associated with the interaction
+        thread_id:
+          type: string
+          description: The ID of the chat thread associated with the interaction
+        timestamp:
+          type: string
+          description: The timestamp when the interaction occurred
+        user_credits:
+          type:
+            - integer
+            - 'null'
+          description: The number of credits used by the user for the interaction
+    ChatbotResponse:
+      type: object
+      properties:
+        api_key:
+          type:
+            - string
+            - 'null'
+          description: The API key for the chatbot
+          examples:
+            - 83816958-931c-42c0-9a21-c6f61c7cdcdb
+        brain_id:
+          type: string
+          description: The ID of the brain associated with the chatbot
+          examples:
+            - 37d53982-bf08-4058-88d5-f91df0a7ab41
+        created_at:
+          type: string
+          description: The creation timestamp of the chatbot
+          examples:
+            - '2024-02-18T19:00:11.989503+00:00'
+        id:
+          type: string
+          description: The ID of the chatbot
+          examples:
+            - 7a2e792d-cf48-49d2-a36d-186be034a9dc
+        name:
+          type: string
+          description: The name of the chatbot
+          examples:
+            - Chatbot -1
+        urls:
+          type:
+            - array
+            - 'null'
+          items:
+            type: string
+          description: An array of URLs associated with the chatbot
+          examples:
+            - - https://byteleap.co
+              - https://ayushgoyal.dev
+        user_id:
+          type: string
+          description: The ID of the user who owns the chatbot
+          examples:
+            - a7a690e6-2a83-4ec5-8eb2-73b0c1d0aa9c
+    ChatbotAnalytics:
+      type: object
+      properties:
+        number_of_chats:
+          type: integer
+          description: The number of chats the chatbot has participated in
+          examples:
+            - 1
+        number_of_messages:
+          type: integer
+          description: The total number of messages the chatbot has exchanged
+          examples:
+            - 2
+    ChatbotMessages:
+      type: object
+      properties:
+        chat_messages:
+          type: array
+          items:
+            type: object
+            properties:
+              actor:
+                type: string
+                description: The actor of the message, either USER or AI
+                examples:
+                  - USER
+              created_at:
+                type: string
+                description: The timestamp when the message was created
+                examples:
+                  - '2024-05-20T06:46:09.010233+00:00'
+              id:
+                type: integer
+                description: The ID of the message
+                examples:
+                  - 461
+              message:
+                type: string
+                description: The content of the message
+                examples:
+                  - hi
+              reference:
+                type:
+                  - array
+                  - 'null'
+                items:
+                  oneOf:
+                    - *ref_1
+                    - type: object
+                      properties: {}
+                description: The list of references associated with the interaction
+              thread_id:
+                type: string
+                description: The ID of the thread the message belongs to
+                examples:
+                  - 7c621be0-96d8-4ecc-9149-74d0ff94f106
+              timestamp:
+                type:
+                  - string
+                  - 'null'
+                description: The timestamp of the message, if available
+                examples:
+                  - null
+    DeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A message indicating the result of the delete operation
+          examples:
+            - Document deleted successfully.
+    CreateChatThreadBody:
+      type: object
+      properties:
+        response_length:
+          type:
+            - string
+            - 'null'
+          enum:
+            - SHORT
+            - MEDIUM
+            - LONG
+          default: MEDIUM
+          description: Configure response length
+        temperature:
+          type:
+            - number
+            - 'null'
+          minimum: 0
+          maximum: 1
+          description: between 0 and 1
+        system_message:
+          type:
+            - string
+            - 'null'
+          description: System message for the LLM
+        model:
+          type:
+            - string
+            - 'null'
+          default: gpt-4o-mini
+          description: LLM Model to choose from
+    UserDetails:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email ID of the user
+        external_user_id:
+          type: string
+          description: Clerk ID of the user
+        first_name:
+          type: string
+          description: First name of the user
+        id:
+          type: string
+          description: User ID
+        last_name:
+          type: string
+          description: Last name of the user
+        phone_number:
+          type: string
+          description: Phone number of the user
+      required:
+        - email
+        - external_user_id
+        - first_name
+        - id
+        - last_name
+        - phone_number
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+servers:
+  - url: https://api.isosceles.ai
+    description: Isosceles
